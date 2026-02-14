@@ -8,6 +8,30 @@ function getDayName(dateString) {
 }
 
 // ============================================
+// Helper function to format time from 24h to 12h format
+// ============================================
+function formatTime(time24) {
+    const [hours, minutes] = time24.split(':');
+    const hour = parseInt(hours);
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const hour12 = hour % 12 || 12;
+    return `${hour12}:${minutes} ${ampm}`;
+}
+
+// ============================================
+// Helper function to format date (e.g., "Feb 18")
+// ============================================
+function formatDate(dateString) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const d = new Date(dateString);
+    const day = d.getDate();
+    const month = months[d.getMonth()];
+    // Format day with leading zero if needed (e.g., "01", "18")
+    const dayStr = day < 10 ? `0${day}` : day.toString();
+    return `${month} ${dayStr}`;
+}
+
+// ============================================
 // Prayer Times Data for Different Cities
 // ============================================
 const prayerTimes = {
@@ -488,16 +512,130 @@ downloadBtn.addEventListener('click', async () => {
 });
 
 // ============================================
+// Fetch Prayer Times from AlAdhan API
+// ============================================
+async function fetchPrayerTimesFromAlAdhan(cityName, country = 'Pakistan') {
+    const cityMap = {
+        'karachi': { name: 'Karachi', country: 'Pakistan' },
+        'lahore': { name: 'Lahore', country: 'Pakistan' },
+        'islamabad': { name: 'Islamabad', country: 'Pakistan' },
+        'faisalabad': { name: 'Faisalabad', country: 'Pakistan' },
+        'rawalpindi': { name: 'Rawalpindi', country: 'Pakistan' },
+        'multan': { name: 'Multan', country: 'Pakistan' },
+        'peshawar': { name: 'Peshawar', country: 'Pakistan' },
+        'quetta': { name: 'Quetta', country: 'Pakistan' },
+        'hyderabad': { name: 'Hyderabad', country: 'Pakistan' },
+        'sialkot': { name: 'Sialkot', country: 'Pakistan' }
+    };
+
+    const cityInfo = cityMap[cityName];
+    if (!cityInfo) return null;
+
+    try {
+        // Fetch data for February and March 2026
+        const [febData, marData] = await Promise.all([
+            fetch(`https://api.aladhan.com/v1/calendarByCity/2026/2?city=${encodeURIComponent(cityInfo.name)}&country=${encodeURIComponent(cityInfo.country)}&method=1`).then(r => r.json()),
+            fetch(`https://api.aladhan.com/v1/calendarByCity/2026/3?city=${encodeURIComponent(cityInfo.name)}&country=${encodeURIComponent(cityInfo.country)}&method=1`).then(r => r.json())
+        ]);
+
+        const allDays = [...(febData.data || []), ...(marData.data || [])];
+        
+        // Filter for Ramadan days (Islamic month = 9)
+        const ramadanDays = allDays.filter(day => {
+            const hijriMonth = parseInt(day.date.hijri.month.number);
+            return hijriMonth === 9; // Ramadan is the 9th month
+        });
+
+        if (ramadanDays.length === 0) return null;
+
+        // Convert to our format
+        const times = ramadanDays.map((day, index) => {
+            const gregorian = day.date.gregorian;
+            const timings = day.timings;
+            
+            // Parse time strings (format: "HH:MM (PKT)" or "HH:MM")
+            const parseTime = (timeStr) => {
+                const match = timeStr.match(/(\d{2}):(\d{2})/);
+                if (match) {
+                    return `${match[1]}:${match[2]}`;
+                }
+                return timeStr;
+            };
+            
+            const fajrTime = parseTime(timings.Fajr);
+            const dhuhrTime = parseTime(timings.Dhuhr);
+            const asrTime = parseTime(timings.Asr);
+            const maghribTime = parseTime(timings.Maghrib);
+            const ishaTime = parseTime(timings.Isha);
+            
+            // Format date string for formatDate function
+            const monthNum = gregorian.month.number.toString().padStart(2, '0');
+            const dayNum = gregorian.day.toString().padStart(2, '0');
+            const dateStr = `${gregorian.year}-${monthNum}-${dayNum}`;
+            
+            return {
+                day: index + 1,
+                date: formatDate(dateStr),
+                ramadanDay: index + 1,
+                fajr: formatTime(fajrTime),
+                dhuhr: formatTime(dhuhrTime),
+                asr: formatTime(asrTime),
+                maghrib: formatTime(maghribTime),
+                isha: formatTime(ishaTime),
+                sehri: formatTime(fajrTime),
+                iftar: formatTime(maghribTime)
+            };
+        });
+
+        return times;
+    } catch (error) {
+        console.error(`Error fetching data for ${cityName}:`, error);
+        return null;
+    }
+}
+
+// ============================================
+// Initialize Prayer Times Data
+// ============================================
+async function initializePrayerTimes() {
+    // Try to fetch from API for all cities
+    const cities = Object.keys(prayerTimes);
+    
+    for (const cityKey of cities) {
+        if (cityKey === 'quetta' || cityKey === 'hyderabad' || cityKey === 'sialkot') {
+            // These will use data from other cities as fallback
+            continue;
+        }
+        
+        const apiData = await fetchPrayerTimesFromAlAdhan(cityKey);
+        if (apiData && apiData.length > 0) {
+            prayerTimes[cityKey].times = apiData;
+        }
+    }
+    
+    // Update fallback cities
+    prayerTimes.quetta.times = prayerTimes.karachi.times.map(t => ({ ...t }));
+    prayerTimes.hyderabad.times = prayerTimes.karachi.times.map(t => ({ ...t }));
+    prayerTimes.sialkot.times = prayerTimes.lahore.times.map(t => ({ ...t }));
+    
+    // Regenerate calendar if already initialized
+    if (userCity && displayCity) {
+        displayCity.textContent = prayerTimes[userCity].name;
+        generateCalendar();
+    }
+}
+
+// ============================================
 // Initialize on Page Load
 // ============================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     // Check for saved city preference or use default
     const savedCity = localStorage.getItem('userCity');
     if (savedCity && prayerTimes[savedCity]) {
         userCity = savedCity;
     }
     
-    // Initialize main content
+    // Initialize main content with default data first
     displayCity.textContent = prayerTimes[userCity].name;
     generateCalendar();
     mainContent.classList.add('show');
@@ -505,6 +643,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start typing animation for subtitle
     const typingEl = document.getElementById('typingSubtitle');
     if (typingEl) typeText(typingEl, typingEl.dataset.text, 60);
+    
+    // Fetch updated data from AlAdhan API
+    await initializePrayerTimes();
 });
 
 // ============================================
