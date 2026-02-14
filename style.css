@@ -429,7 +429,7 @@ textarea {
    Main Content
    ============================================ */
 .main-content {
-    display: none;
+    display: block;
     position: relative;
     z-index: 1;
     padding: 20px;

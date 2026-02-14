@@ -279,16 +279,11 @@ prayerTimes.sialkot.times = prayerTimes.lahore.times.map(t => ({ ...t }));
 // Global Variables
 // ============================================
 let userName = '';
-let userCity = '';
+let userCity = 'karachi'; // Default city
 
 // ============================================
 // DOM Elements
 // ============================================
-const formContainer = document.getElementById('formContainer');
-const userForm = document.getElementById('userForm');
-const welcomePopup = document.getElementById('welcomePopup');
-const displayName = document.getElementById('displayName');
-const nextBtn = document.getElementById('nextBtn');
 const mainContent = document.getElementById('mainContent');
 const displayCity = document.getElementById('displayCity');
 const tableBody = document.getElementById('tableBody');
@@ -299,49 +294,6 @@ const changeCityBtn = document.getElementById('changeCityBtn');
 const changeCityPopup = document.getElementById('changeCityPopup');
 const changeCityForm = document.getElementById('changeCityForm');
 const changeCitySelect = document.getElementById('changeCitySelect');
-
-// ============================================
-// Form Submission Handler
-// ============================================
-userForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    userName = document.getElementById('userName').value.trim();
-    userCity = document.getElementById('userCity').value;
-    
-    if (!userName || !userCity) {
-        alert('Please fill in all fields');
-        return;
-    }
-    
-    // Hide form with animation
-    formContainer.classList.add('hidden');
-    
-    // Show welcome popup after a short delay
-    setTimeout(() => {
-        displayName.textContent = userName;
-        welcomePopup.classList.add('show');
-    }, 300);
-});
-
-// ============================================
-// Next Button Handler (Welcome Popup)
-// ============================================
-nextBtn.addEventListener('click', () => {
-    // Hide welcome popup
-    welcomePopup.classList.remove('show');
-    
-    // Show main content after animation
-    setTimeout(() => {
-        welcomePopup.style.display = 'none';
-        displayCity.textContent = prayerTimes[userCity].name;
-        generateCalendar();
-        mainContent.classList.add('show');
-        // start typing animation for subtitle
-        const typingEl = document.getElementById('typingSubtitle');
-        if (typingEl) typeText(typingEl, typingEl.dataset.text, 60);
-    }, 300);
-});
 
 // ============================================
 // Generate Calendar Table
@@ -539,28 +491,20 @@ downloadBtn.addEventListener('click', async () => {
 // Initialize on Page Load
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if user has already submitted form (for page refresh)
-    const savedName = localStorage.getItem('userName');
+    // Check for saved city preference or use default
     const savedCity = localStorage.getItem('userCity');
-    
-    if (savedName && savedCity) {
-        userName = savedName;
+    if (savedCity && prayerTimes[savedCity]) {
         userCity = savedCity;
-        formContainer.classList.add('hidden');
-        welcomePopup.style.display = 'none';
-        displayCity.textContent = prayerTimes[userCity].name;
-        generateCalendar();
-        mainContent.classList.add('show');
-        // start typing animation for subtitle when restoring state
-        const typingEl = document.getElementById('typingSubtitle');
-        if (typingEl) typeText(typingEl, typingEl.dataset.text, 60);
     }
     
-    // Save user data when form is submitted
-    userForm.addEventListener('submit', () => {
-        localStorage.setItem('userName', userName);
-        localStorage.setItem('userCity', userCity);
-    });
+    // Initialize main content
+    displayCity.textContent = prayerTimes[userCity].name;
+    generateCalendar();
+    mainContent.classList.add('show');
+    
+    // Start typing animation for subtitle
+    const typingEl = document.getElementById('typingSubtitle');
+    if (typingEl) typeText(typingEl, typingEl.dataset.text, 60);
 });
 
 // ============================================
