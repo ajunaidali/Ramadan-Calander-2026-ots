@@ -36,7 +36,7 @@ const prayerTimes = {
     karachi: {
         name: 'Karachi',
         times: [
-            { day: 1, date: 'Feb 19', ramadanDay: 1, fajr: '5:47 AM', dhuhr: '12:46 PM', asr: '4:51 PM', maghrib: '6:28 PM', isha: '7:45 PM', sehri: '5:47 AM', iftar: '6:28 PM' },
+            { day: 1, date: 'Feb 18', ramadanDay: 1, fajr: '5:47 AM', dhuhr: '12:46 PM', asr: '4:51 PM', maghrib: '6:28 PM', isha: '7:45 PM', sehri: '5:47 AM', iftar: '6:28 PM' },
             { day: 2, date: 'Feb 20', ramadanDay: 2, fajr: '5:46 AM', dhuhr: '12:46 PM', asr: '4:52 PM', maghrib: '6:29 PM', isha: '7:45 PM', sehri: '5:46 AM', iftar: '6:29 PM' },
             { day: 3, date: 'Feb 21', ramadanDay: 3, fajr: '5:45 AM', dhuhr: '12:45 PM', asr: '4:52 PM', maghrib: '6:30 PM', isha: '7:46 PM', sehri: '5:45 AM', iftar: '6:30 PM' },
             { day: 4, date: 'Feb 22', ramadanDay: 4, fajr: '5:45 AM', dhuhr: '12:45 PM', asr: '4:53 PM', maghrib: '6:30 PM', isha: '7:46 PM', sehri: '5:45 AM', iftar: '6:30 PM' },
@@ -65,13 +65,13 @@ const prayerTimes = {
             { day: 27, date: 'Mar 17', ramadanDay: 27, fajr: '5:22 AM', dhuhr: '12:40 PM', asr: '5:02 PM', maghrib: '6:43 PM', isha: '7:58 PM', sehri: '5:22 AM', iftar: '6:43 PM' },
             { day: 28, date: 'Mar 18', ramadanDay: 28, fajr: '5:21 AM', dhuhr: '12:40 PM', asr: '5:03 PM', maghrib: '6:43 PM', isha: '7:59 PM', sehri: '5:21 AM', iftar: '6:43 PM' },
             { day: 29, date: 'Mar 19', ramadanDay: 29, fajr: '5:20 AM', dhuhr: '12:40 PM', asr: '5:03 PM', maghrib: '6:43 PM', isha: '7:59 PM', sehri: '5:20 AM', iftar: '6:43 PM' },
-            { day: 30, date: 'Mar 20', ramadanDay: 30, fajr: '5:19 AM', dhuhr: '12:39 PM', asr: '5:04 PM', maghrib: '6:44 PM', isha: '8:00 PM', sehri: '5:19 AM', iftar: '6:44 PM' }
+            { day: 30, date: 'Mar 19', ramadanDay: 30, fajr: '5:19 AM', dhuhr: '12:39 PM', asr: '5:04 PM', maghrib: '6:44 PM', isha: '8:00 PM', sehri: '5:19 AM', iftar: '6:44 PM' }
         ]
     },
     lahore: {
         name: 'Lahore',
         times: [
-            { day: 1, date: 'Feb 19', ramadanDay: 1, fajr: '5:19 AM', dhuhr: '12:16 PM', asr: '4:14 PM', maghrib: '5:53 PM', isha: '7:14 PM', sehri: '5:19 AM', iftar: '5:53 PM' },
+            { day: 1, date: 'Feb 18', ramadanDay: 1, fajr: '5:19 AM', dhuhr: '12:16 PM', asr: '4:14 PM', maghrib: '5:53 PM', isha: '7:14 PM', sehri: '5:19 AM', iftar: '5:53 PM' },
             { day: 2, date: 'Feb 20', ramadanDay: 2, fajr: '5:18 AM', dhuhr: '12:16 PM', asr: '4:15 PM', maghrib: '5:53 PM', isha: '7:15 PM', sehri: '5:18 AM', iftar: '5:53 PM' },
             { day: 3, date: 'Feb 21', ramadanDay: 3, fajr: '5:17 AM', dhuhr: '12:16 PM', asr: '4:16 PM', maghrib: '5:54 PM', isha: '7:15 PM', sehri: '5:17 AM', iftar: '5:54 PM' },
             { day: 4, date: 'Feb 22', ramadanDay: 4, fajr: '5:17 AM', dhuhr: '12:16 PM', asr: '4:16 PM', maghrib: '5:55 PM', isha: '7:16 PM', sehri: '5:17 AM', iftar: '5:55 PM' },
@@ -100,13 +100,13 @@ const prayerTimes = {
             { day: 27, date: 'Mar 17', ramadanDay: 27, fajr: '4:49 AM', dhuhr: '12:11 PM', asr: '4:30 PM', maghrib: '6:12 PM', isha: '7:33 PM', sehri: '4:49 AM', iftar: '6:12 PM' },
             { day: 28, date: 'Mar 18', ramadanDay: 28, fajr: '4:48 AM', dhuhr: '12:10 PM', asr: '4:31 PM', maghrib: '6:13 PM', isha: '7:33 PM', sehri: '4:48 AM', iftar: '6:13 PM' },
             { day: 29, date: 'Mar 19', ramadanDay: 29, fajr: '4:47 AM', dhuhr: '12:10 PM', asr: '4:31 PM', maghrib: '6:13 PM', isha: '7:34 PM', sehri: '4:47 AM', iftar: '6:13 PM' },
-            { day: 30, date: 'Mar 20', ramadanDay: 30, fajr: '4:45 AM', dhuhr: '12:10 PM', asr: '4:32 PM', maghrib: '6:14 PM', isha: '7:35 PM', sehri: '4:45 AM', iftar: '6:14 PM' }
+            { day: 30, date: 'Mar 19', ramadanDay: 30, fajr: '4:45 AM', dhuhr: '12:10 PM', asr: '4:32 PM', maghrib: '6:14 PM', isha: '7:35 PM', sehri: '4:45 AM', iftar: '6:14 PM' }
         ]
     },
     islamabad: {
         name: 'Islamabad',
         times: [
-            { day: 1, date: 'Feb 19', ramadanDay: 1, fajr: '5:25 AM', dhuhr: '12:22 PM', asr: '4:16 PM', maghrib: '5:55 PM', isha: '7:19 PM', sehri: '5:25 AM', iftar: '5:55 PM' },
+            { day: 1, date: 'Feb 18', ramadanDay: 1, fajr: '5:25 AM', dhuhr: '12:22 PM', asr: '4:16 PM', maghrib: '5:55 PM', isha: '7:19 PM', sehri: '5:25 AM', iftar: '5:55 PM' },
             { day: 2, date: 'Feb 20', ramadanDay: 2, fajr: '5:24 AM', dhuhr: '12:22 PM', asr: '4:17 PM', maghrib: '5:56 PM', isha: '7:20 PM', sehri: '5:24 AM', iftar: '5:56 PM' },
             { day: 3, date: 'Feb 21', ramadanDay: 3, fajr: '5:23 AM', dhuhr: '12:22 PM', asr: '4:17 PM', maghrib: '5:57 PM', isha: '7:20 PM', sehri: '5:23 AM', iftar: '5:57 PM' },
             { day: 4, date: 'Feb 22', ramadanDay: 4, fajr: '5:22 AM', dhuhr: '12:22 PM', asr: '4:18 PM', maghrib: '5:57 PM', isha: '7:21 PM', sehri: '5:22 AM', iftar: '5:57 PM' },
@@ -135,13 +135,13 @@ const prayerTimes = {
             { day: 27, date: 'Mar 17', ramadanDay: 27, fajr: '4:57 AM', dhuhr: '12:17 PM', asr: '4:31 PM', maghrib: '6:13 PM', isha: '7:36 PM', sehri: '4:57 AM', iftar: '6:13 PM' },
             { day: 28, date: 'Mar 18', ramadanDay: 28, fajr: '4:56 AM', dhuhr: '12:16 PM', asr: '4:32 PM', maghrib: '6:13 PM', isha: '7:37 PM', sehri: '4:56 AM', iftar: '6:13 PM' },
             { day: 29, date: 'Mar 19', ramadanDay: 29, fajr: '4:55 AM', dhuhr: '12:16 PM', asr: '4:32 PM', maghrib: '6:14 PM', isha: '7:37 PM', sehri: '4:55 AM', iftar: '6:14 PM' },
-            { day: 30, date: 'Mar 20', ramadanDay: 30, fajr: '4:54 AM', dhuhr: '12:16 PM', asr: '4:33 PM', maghrib: '6:15 PM', isha: '7:38 PM', sehri: '4:54 AM', iftar: '6:15 PM' }
+            { day: 30, date: 'Mar 19', ramadanDay: 30, fajr: '4:54 AM', dhuhr: '12:16 PM', asr: '4:33 PM', maghrib: '6:15 PM', isha: '7:38 PM', sehri: '4:54 AM', iftar: '6:15 PM' }
         ]
     },
     faisalabad: {
         name: 'Faisalabad',
         times: [
-            { day: 1, date: 'Feb 19', ramadanDay: 1, fajr: '5:24 AM', dhuhr: '12:21 PM', asr: '4:19 PM', maghrib: '5:58 PM', isha: '7:19 PM', sehri: '5:24 AM', iftar: '5:58 PM' },
+            { day: 1, date: 'Feb 18', ramadanDay: 1, fajr: '5:24 AM', dhuhr: '12:21 PM', asr: '4:19 PM', maghrib: '5:58 PM', isha: '7:19 PM', sehri: '5:24 AM', iftar: '5:58 PM' },
             { day: 2, date: 'Feb 20', ramadanDay: 2, fajr: '5:23 AM', dhuhr: '12:21 PM', asr: '4:19 PM', maghrib: '5:59 PM', isha: '7:20 PM', sehri: '5:23 AM', iftar: '5:59 PM' },
             { day: 3, date: 'Feb 21', ramadanDay: 3, fajr: '5:22 AM', dhuhr: '12:21 PM', asr: '4:20 PM', maghrib: '5:59 PM', isha: '7:20 PM', sehri: '5:22 AM', iftar: '5:59 PM' },
             { day: 4, date: 'Feb 22', ramadanDay: 4, fajr: '5:21 AM', dhuhr: '12:21 PM', asr: '4:20 PM', maghrib: '6:00 PM', isha: '7:21 PM', sehri: '5:21 AM', iftar: '6:00 PM' },
@@ -170,13 +170,13 @@ const prayerTimes = {
             { day: 27, date: 'Mar 17', ramadanDay: 27, fajr: '4:57 AM', dhuhr: '12:15 PM', asr: '4:32 PM', maghrib: '6:15 PM', isha: '7:36 PM', sehri: '4:57 AM', iftar: '6:15 PM' },
             { day: 28, date: 'Mar 18', ramadanDay: 28, fajr: '4:56 AM', dhuhr: '12:15 PM', asr: '4:33 PM', maghrib: '6:15 PM', isha: '7:37 PM', sehri: '4:56 AM', iftar: '6:15 PM' },
             { day: 29, date: 'Mar 19', ramadanDay: 29, fajr: '4:55 AM', dhuhr: '12:15 PM', asr: '4:33 PM', maghrib: '6:16 PM', isha: '7:37 PM', sehri: '4:55 AM', iftar: '6:16 PM' },
-            { day: 30, date: 'Mar 20', ramadanDay: 30, fajr: '4:54 AM', dhuhr: '12:14 PM', asr: '4:34 PM', maghrib: '6:17 PM', isha: '7:38 PM', sehri: '4:54 AM', iftar: '6:17 PM' }
+            { day: 30, date: 'Mar 19', ramadanDay: 30, fajr: '4:54 AM', dhuhr: '12:14 PM', asr: '4:34 PM', maghrib: '6:17 PM', isha: '7:38 PM', sehri: '4:54 AM', iftar: '6:17 PM' }
         ]
     },
     rawalpindi: {
         name: 'Rawalpindi',
         times: [
-            { day: 1, date: 'Feb 19', ramadanDay: 1, fajr: '5:24 AM', dhuhr: '12:22 PM', asr: '4:16 PM', maghrib: '5:56 PM', isha: '7:19 PM', sehri: '5:24 AM', iftar: '5:56 PM' },
+            { day: 1, date: 'Feb 18', ramadanDay: 1, fajr: '5:24 AM', dhuhr: '12:22 PM', asr: '4:16 PM', maghrib: '5:56 PM', isha: '7:19 PM', sehri: '5:24 AM', iftar: '5:56 PM' },
             { day: 2, date: 'Feb 20', ramadanDay: 2, fajr: '5:23 AM', dhuhr: '12:22 PM', asr: '4:17 PM', maghrib: '5:56 PM', isha: '7:20 PM', sehri: '5:23 AM', iftar: '5:56 PM' },
             { day: 3, date: 'Feb 21', ramadanDay: 3, fajr: '5:22 AM', dhuhr: '12:22 PM', asr: '4:17 PM', maghrib: '5:57 PM', isha: '7:20 PM', sehri: '5:22 AM', iftar: '5:57 PM' },
             { day: 4, date: 'Feb 22', ramadanDay: 4, fajr: '5:21 AM', dhuhr: '12:22 PM', asr: '4:18 PM', maghrib: '5:58 PM', isha: '7:21 PM', sehri: '5:21 AM', iftar: '5:58 PM' },
@@ -205,13 +205,13 @@ const prayerTimes = {
             { day: 27, date: 'Mar 17', ramadanDay: 27, fajr: '4:57 AM', dhuhr: '12:17 PM', asr: '4:31 PM', maghrib: '6:13 PM', isha: '7:36 PM', sehri: '4:57 AM', iftar: '6:13 PM' },
             { day: 28, date: 'Mar 18', ramadanDay: 28, fajr: '4:56 AM', dhuhr: '12:16 PM', asr: '4:32 PM', maghrib: '6:13 PM', isha: '7:37 PM', sehri: '4:56 AM', iftar: '6:13 PM' },
             { day: 29, date: 'Mar 19', ramadanDay: 29, fajr: '4:55 AM', dhuhr: '12:16 PM', asr: '4:32 PM', maghrib: '6:14 PM', isha: '7:37 PM', sehri: '4:55 AM', iftar: '6:14 PM' },
-            { day: 30, date: 'Mar 20', ramadanDay: 30, fajr: '4:54 AM', dhuhr: '12:16 PM', asr: '4:33 PM', maghrib: '6:15 PM', isha: '7:38 PM', sehri: '4:54 AM', iftar: '6:15 PM' }
+            { day: 30, date: 'Mar 19', ramadanDay: 30, fajr: '4:54 AM', dhuhr: '12:16 PM', asr: '4:33 PM', maghrib: '6:15 PM', isha: '7:38 PM', sehri: '4:54 AM', iftar: '6:15 PM' }
         ]
     },
     multan: {
         name: 'Multan',
         times: [
-            { day: 1, date: 'Feb 19', ramadanDay: 1, fajr: '5:30 AM', dhuhr: '12:23 PM', asr: '4:19 PM', maghrib: '5:58 PM', isha: '7:18 PM', sehri: '5:30 AM', iftar: '5:58 PM' },
+            { day: 1, date: 'Feb 18', ramadanDay: 1, fajr: '5:30 AM', dhuhr: '12:23 PM', asr: '4:19 PM', maghrib: '5:58 PM', isha: '7:18 PM', sehri: '5:30 AM', iftar: '5:58 PM' },
             { day: 2, date: 'Feb 20', ramadanDay: 2, fajr: '5:29 AM', dhuhr: '12:23 PM', asr: '4:19 PM', maghrib: '5:59 PM', isha: '7:19 PM', sehri: '5:29 AM', iftar: '5:59 PM' },
             { day: 3, date: 'Feb 21', ramadanDay: 3, fajr: '5:28 AM', dhuhr: '12:23 PM', asr: '4:20 PM', maghrib: '6:00 PM', isha: '7:19 PM', sehri: '5:28 AM', iftar: '6:00 PM' },
             { day: 4, date: 'Feb 22', ramadanDay: 4, fajr: '5:27 AM', dhuhr: '12:22 PM', asr: '4:20 PM', maghrib: '6:00 PM', isha: '7:20 PM', sehri: '5:27 AM', iftar: '6:00 PM' },
@@ -240,13 +240,13 @@ const prayerTimes = {
             { day: 27, date: 'Mar 17', ramadanDay: 27, fajr: '5:03 AM', dhuhr: '12:17 PM', asr: '4:32 PM', maghrib: '6:15 PM', isha: '7:35 PM', sehri: '5:03 AM', iftar: '6:15 PM' },
             { day: 28, date: 'Mar 18', ramadanDay: 28, fajr: '5:02 AM', dhuhr: '12:17 PM', asr: '4:32 PM', maghrib: '6:16 PM', isha: '7:36 PM', sehri: '5:02 AM', iftar: '6:16 PM' },
             { day: 29, date: 'Mar 19', ramadanDay: 29, fajr: '5:01 AM', dhuhr: '12:17 PM', asr: '4:33 PM', maghrib: '6:16 PM', isha: '7:36 PM', sehri: '5:01 AM', iftar: '6:16 PM' },
-            { day: 30, date: 'Mar 20', ramadanDay: 30, fajr: '5:00 AM', dhuhr: '12:17 PM', asr: '4:34 PM', maghrib: '6:17 PM', isha: '7:37 PM', sehri: '5:00 AM', iftar: '6:17 PM' }
+            { day: 30, date: 'Mar 19', ramadanDay: 30, fajr: '5:00 AM', dhuhr: '12:17 PM', asr: '4:34 PM', maghrib: '6:17 PM', isha: '7:37 PM', sehri: '5:00 AM', iftar: '6:17 PM' }
         ]
     },
     peshawar: {
         name: 'Peshawar',
         times: [
-            { day: 1, date: 'Feb 19', ramadanDay: 1, fajr: '5:31 AM', dhuhr: '12:28 PM', asr: '4:22 PM', maghrib: '6:01 PM', isha: '7:25 PM', sehri: '5:31 AM', iftar: '6:01 PM' },
+            { day: 1, date: 'Feb 18', ramadanDay: 1, fajr: '5:31 AM', dhuhr: '12:28 PM', asr: '4:22 PM', maghrib: '6:01 PM', isha: '7:25 PM', sehri: '5:31 AM', iftar: '6:01 PM' },
             { day: 2, date: 'Feb 20', ramadanDay: 2, fajr: '5:30 AM', dhuhr: '12:28 PM', asr: '4:23 PM', maghrib: '6:02 PM', isha: '7:25 PM', sehri: '5:30 AM', iftar: '6:02 PM' },
             { day: 3, date: 'Feb 21', ramadanDay: 3, fajr: '5:29 AM', dhuhr: '12:28 PM', asr: '4:23 PM', maghrib: '6:02 PM', isha: '7:26 PM', sehri: '5:29 AM', iftar: '6:02 PM' },
             { day: 4, date: 'Feb 22', ramadanDay: 4, fajr: '5:28 AM', dhuhr: '12:28 PM', asr: '4:24 PM', maghrib: '6:03 PM', isha: '7:27 PM', sehri: '5:28 AM', iftar: '6:03 PM' },
@@ -275,7 +275,7 @@ const prayerTimes = {
             { day: 27, date: 'Mar 17', ramadanDay: 27, fajr: '5:04 AM', dhuhr: '12:22 PM', asr: '4:35 PM', maghrib: '6:18 PM', isha: '7:42 PM', sehri: '5:04 AM', iftar: '6:18 PM' },
             { day: 28, date: 'Mar 18', ramadanDay: 28, fajr: '5:03 AM', dhuhr: '12:22 PM', asr: '4:36 PM', maghrib: '6:19 PM', isha: '7:43 PM', sehri: '5:03 AM', iftar: '6:19 PM' },
             { day: 29, date: 'Mar 19', ramadanDay: 29, fajr: '5:02 AM', dhuhr: '12:22 PM', asr: '4:36 PM', maghrib: '6:20 PM', isha: '7:43 PM', sehri: '5:02 AM', iftar: '6:20 PM' },
-            { day: 30, date: 'Mar 20', ramadanDay: 30, fajr: '5:01 AM', dhuhr: '12:21 PM', asr: '4:37 PM', maghrib: '6:20 PM', isha: '7:44 PM', sehri: '5:01 AM', iftar: '6:20 PM' }
+            { day: 30, date: 'Mar 19', ramadanDay: 30, fajr: '5:01 AM', dhuhr: '12:21 PM', asr: '4:37 PM', maghrib: '6:20 PM', isha: '7:44 PM', sehri: '5:01 AM', iftar: '6:20 PM' }
         ]
     },
     quetta: {
