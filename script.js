@@ -438,16 +438,13 @@ function generateCalendar() {
     cityData.times.forEach((day, index) => {
         const row = document.createElement('tr');
         
-        // Check if this is today (simplified check - you can enhance this)
-        const isToday = index === 0; // For demo, highlight first day. You can add proper date logic
-        
-        // Parse date to check if it's today
+        // Parse date to check if it's today (present roza only)
         const dayDate = day.date.split(' ');
         const dayNum = parseInt(dayDate[1]);
         const isCurrentDay = (dayNum === currentDate && dayDate[0] === 'Feb' && currentMonth === 1) ||
                             (dayNum === currentDate && dayDate[0] === 'Mar' && currentMonth === 2);
         
-        if (isCurrentDay || isToday) {
+        if (isCurrentDay) {
             row.classList.add('current-day');
         }
         
